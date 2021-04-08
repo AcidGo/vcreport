@@ -15,6 +15,7 @@ class VCWorker(object):
 
     def _vc_reset(self):
         self._args = {}
+        self.service_instance = None
         self._atexit_func = None
 
     def login(self, **kwargs):

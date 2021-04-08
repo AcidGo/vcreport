@@ -2,6 +2,7 @@ import json
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from tables import Base
 
 class Reporter(object):
     def login(self, dsn):
@@ -11,7 +12,7 @@ class Reporter(object):
         raise Exception("please overwrite me")
 
 class DBReport(Reporter):
-    def login(self):
+    def login(self, dsn):
         self._db_session = None
         engine = create_engine(
             dsn,
